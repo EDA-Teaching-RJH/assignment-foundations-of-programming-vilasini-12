@@ -33,7 +33,7 @@ def run_system_monolith():
                 if i >= list_length: 
                     break
                 else: 
-                    print(n[i] + " - " + r[i]) 
+                    print(str(n[i]) + " - " + str(r[i]) + " - " + str(d[i]))  #n[i] and r[i] are not strings so changed them to one also added division, prevents type error
 
                 
         elif opt == "2":
