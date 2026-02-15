@@ -25,7 +25,7 @@ def run_system_monolith():
         
         opt = input("Select option: ")
         
-        if opt == "1":  
+        if opt == "1":  # changed from "=" to "=="
             print("Current Crew List:")
             
             for i in range(10):
@@ -38,6 +38,8 @@ def run_system_monolith():
             
            
             n.append(new_name)
+            r.append(new_rank) # added new rank to the list
+            d.append(new_div) # added new division to the list
             print("Crew member added.")
             
         elif opt == "3":
