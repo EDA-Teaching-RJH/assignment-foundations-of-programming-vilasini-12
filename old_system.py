@@ -37,9 +37,9 @@ def run_system_monolith():
 
                 
         elif opt == "2":
-            new_name = input("Name: ").capitalize() # capitalizing all words 
-            new_rank = input("Rank: ").capitalize()
-            new_div = input("Division: ").capitalize()
+            new_name = input("Name: ").capitalize()     # capitalizing name 
+            new_rank = input("Rank: ").capitalize()     # capitalizing rank
+            new_div = input("Division: ").capitalize()      #capitalizing division
             
            
             n.append(new_name)
@@ -48,7 +48,7 @@ def run_system_monolith():
             print("Crew member added.")
             
         elif opt == "3":
-            rem = input("Name to remove: ")
+            rem = input("Name to remove: ").capitalize()    # capitalizing name
             if rem in n:   # prevents value error if not found
                 idx = n.index(rem)
                 n.pop(idx)
