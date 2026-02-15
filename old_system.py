@@ -37,9 +37,9 @@ def run_system_monolith():
 
                 
         elif opt == "2":
-            new_name = input("Name: ")
-            new_rank = input("Rank: ")
-            new_div = input("Division: ")
+            new_name = input("Name: ").capitalize() # capitalizing all words 
+            new_rank = input("Rank: ").capitalize()
+            new_div = input("Division: ").capitalize()
             
            
             n.append(new_name)
