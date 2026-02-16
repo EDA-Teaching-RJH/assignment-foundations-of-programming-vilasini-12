@@ -12,6 +12,23 @@ def init_database():
     else:
       print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
 
+def add_members(names, ranks, divs, ids):
+  new_name = input("Name: ").capitalize()
+  new_rank = input("Rank: ").capitalize()
+  new_div = input("Division: ").capitalize()
+  new_id = input("ID: ").upper()
+  new_id = str(new_id)
+  if new_id in ids:
+    print("ID already exists")
+    return
+  if new_rank not in ["Ensign", "Lieutenant", "Lt. Commander", "Commander", "Captain", "Admiral"]:
+    print("Not valid rank")
+    return
+  names.append(new_name)
+  ranks.append(new_rank)
+  divs.append(new_div)
+  ids.append(new_id)
+
 def filter_by_division(names, divs):
   members = []
   section = input("What division do you want to check: Command, Operations, Science: ").capitalize()
@@ -51,7 +68,7 @@ def main():
     print("\n--- MENU ---")
     print("1. View Crew")
     print("2. ")
-    print("3. ")
+    print("3. Add Member")
     print("4. ")
     print("5. ")
     print("6. ")
@@ -67,7 +84,8 @@ def main():
       init_database()
     #elif opt == "2":
 
-    #elif opt == "3":
+    elif opt == "3":
+      add_members(names, ranks, divs, ids)
 
     #elif opt == "4":
 
