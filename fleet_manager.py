@@ -12,6 +12,14 @@ def init_database():
     else:
       print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
 
+def filter_by_division(names, divs):
+  members = []
+  section = input("What division do you want to check: Command, Operations, Science: ").capitalize()
+  for i in range(len(divs)):
+    if divs[i] == section:
+      members.append(names[i])
+  return members
+
 def calculate_payroll(ranks):
   total_pay = 0
   for rank in ranks:
@@ -48,7 +56,7 @@ def main():
     print("5. ")
     print("6. ")
     print("7. ")
-    print("8. ")
+    print("8. Members in Certain Division")
     print("9. Crew Payroll")
     print("10. Analyse Data: No of Captains and Commanders")
     print("11. Exit")
@@ -69,8 +77,8 @@ def main():
 
     #elif opt == "7":
 
-    #elif opt == "8":
-
+    elif opt == "8":
+        print(f"Members in selected division: ", filter_by_division(names, divs))
     elif opt == "9":
       print("Total crew payroll: £", calculate_payroll(ranks))
     elif opt == "10":
