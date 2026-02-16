@@ -12,7 +12,7 @@ def init_database():
     else:
       print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
 
-def add_members(names, ranks, divs, ids):
+def add_member(names, ranks, divs, ids):
   new_name = input("Name: ").capitalize()
   new_rank = input("Rank: ").capitalize()
   new_div = input("Division: ").capitalize()
@@ -28,6 +28,16 @@ def add_members(names, ranks, divs, ids):
   ranks.append(new_rank)
   divs.append(new_div)
   ids.append(new_id)
+
+def remove_member(names, ranks, divs, ids):
+    rem = input("Type in ID of member to remove: ")
+    if rem in ids:
+      idx = ids.index(rem)
+      names.pop(idx)
+      ranks.pop(idx)
+      divs.pop(idx)
+      ids.pop(idx)
+      print("Member removed.")
 
 def display_roster(names, ranks, divs, ids):
   print("Name - Ranks - Division - IDs")
@@ -73,8 +83,8 @@ def main():
     print("\n--- MENU ---")
     print("1. View Crew")
     print("2. ")
-    print("3. Add Members")
-    print("4. ")
+    print("3. Add Member")
+    print("4. Remove Member")
     print("5. ")
     print("6. Display Roster")
     print("7. ")
@@ -90,10 +100,10 @@ def main():
     #elif opt == "2":
 
     elif opt == "3":
-      add_members(names, ranks, divs, ids)
+      add_member(names, ranks, divs, ids)
 
-    #elif opt == "4":
-
+    elif opt == "4":
+        remove_member(names, ranks, divs, ids)
     #elif opt == "5":
 
     elif opt == "6":
