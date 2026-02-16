@@ -3,6 +3,15 @@ ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
 divs = ["Command", "Command", "Operations", "Science"]
 ids = ["PC34", "RC29", "DO76", "WS43"]
 
+def init_database():
+  print("Current Crew List:")
+  for i in range(10):
+    list_length = len(names)
+    if i >= list_length:
+      break
+    else:
+      print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
+
 def calculate_payroll(ranks):
   total_pay = 0
   for rank in ranks:
@@ -32,7 +41,7 @@ def count_officers(ranks):
 def main():
   while True:
     print("\n--- MENU ---")
-    print("1. ")
+    print("1. View Crew")
     print("2. ")
     print("3. ")
     print("4. ")
@@ -40,14 +49,14 @@ def main():
     print("6. ")
     print("7. ")
     print("8. ")
-    print("9. ")
+    print("9. Crew Payroll")
     print("10. Analyse Data: No of Captains and Commanders")
     print("11. Exit")
 
     opt = input("Select option: ")
 
-    #if opt == "1":
-
+    if opt == "1":
+      init_database()
     #elif opt == "2":
 
     #elif opt == "3":
@@ -62,7 +71,7 @@ def main():
 
     #elif opt == "8":
 
-    if opt == "9":
+    elif opt == "9":
       print("Total crew payroll: £", calculate_payroll(ranks))
     elif opt == "10":
       print("High ranking officers(Captains and Commanders): " , count_officers(ranks))
