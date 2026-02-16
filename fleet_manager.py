@@ -3,6 +3,24 @@ ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
 divs = ["Command", "Command", "Operations", "Science"]
 ids = ["PC34", "RC29", "DO76", "WS43"]
 
+def calculate_payroll(ranks):
+  total_pay = 0
+  for rank in ranks:
+    if rank == "Captain":
+      total_pay += 1000
+    elif rank == "Ensign":
+      total_pay += 200
+    elif rank == "Lieutenant":
+      total_pay += 700
+    elif rank == "Lt. Commander":
+      total_pay += 800
+    elif rank == "Commander":
+      total_pay += 900
+    elif rank == "Admiral":
+      total_pay += 1200
+    else:
+      print("Unknown rank")
+  return total_pay
 
 def count_officers(ranks):
   count = 0
@@ -44,9 +62,9 @@ def main():
 
     #elif opt == "8":
 
-    #elif opt == "9":
-
-    if opt == "10":
+    if opt == "9":
+      print("Total crew payroll: £", calculate_payroll(ranks))
+    elif opt == "10":
       print("High ranking officers(Captains and Commanders): " , count_officers(ranks))
     elif opt == "11":
       print("Shutting down.")
