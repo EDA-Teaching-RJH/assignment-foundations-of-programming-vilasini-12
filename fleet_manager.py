@@ -58,6 +58,16 @@ def display_roster(names, ranks, divs, ids):
   for i in range(len(names)):
     print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
 
+def search_crew(names, ranks, divs, ids):
+  search = input("Enter term to find members: ")
+  found = False
+  for i in range(len(names)):
+    if search in str(names[i]):
+      print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
+      found = True
+  if not found:
+      print("No Members contain that.")
+
 def filter_by_division(names, divs):
   members = []
   section = input("What division do you want to check: Command, Operations, Science: ").capitalize()
@@ -101,7 +111,7 @@ def main():
     print("4. Remove Member")
     print("5. Update Rank")
     print("6. Display Roster")
-    print("7. ")
+    print("7. Search Crew")
     print("8. Members in Certain Division")
     print("9. Crew Payroll")
     print("10. Analyse Data: No of Captains and Commanders")
@@ -125,7 +135,8 @@ def main():
     elif opt == "6":
       display_roster(names, ranks, divs, ids)
 
-    #elif opt == "7":
+    elif opt == "7":
+      search_crew(names, ranks, divs, ids)
 
     elif opt == "8":
         print(f"Members in selected division: ", filter_by_division(names, divs))
