@@ -12,6 +12,15 @@ def init_database():
     else:
       print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
 
+def display_menu():
+  user_name = input("Type your full name: ").title()
+  print(f"Welcome {user_name}, please view the MENU: \n1. View Crew\n2. Add Member\n3. Remove Member\n4. Update Rank"
+        "\n5. Display Roster\n6. Search Crew\n7. Members in Certain Division\n8. Crew Payroll" 
+        "\n9. Analyse Data: No of Captains and Commanders\n10. Exit")
+  option = input("Select option: ")
+  return option
+
+
 def add_member(names, ranks, divs, ids):
   new_name = input("Name: ").capitalize()
   new_rank = input("Rank: ").capitalize()
@@ -30,14 +39,14 @@ def add_member(names, ranks, divs, ids):
   ids.append(new_id)
 
 def remove_member(names, ranks, divs, ids):
-    rem = input("Type in ID of member to remove: ")
+    rem = input("Type in ID of member to remove: ").upper()
     if rem in ids:
-      idx = ids.index(rem)
-      names.pop(idx)
-      ranks.pop(idx)
-      divs.pop(idx)
-      ids.pop(idx)
-      print("Member removed.")
+        idx = ids.index(rem)
+        names.pop(idx)
+        ranks.pop(idx)
+        divs.pop(idx)
+        ids.pop(idx)
+        print("Member removed.")
 
 def update_rank(names, ranks, ids):
   update = input("Enter ID of member to update rank: ").upper()
@@ -104,51 +113,30 @@ def count_officers(ranks):
 
 def main():
   while True:
-    print("\n--- MENU ---")
-    print("1. View Crew")
-    print("2. ")
-    print("3. Add Member")
-    print("4. Remove Member")
-    print("5. Update Rank")
-    print("6. Display Roster")
-    print("7. Search Crew")
-    print("8. Members in Certain Division")
-    print("9. Crew Payroll")
-    print("10. Analyse Data: No of Captains and Commanders")
-    print("11. Exit")
-
-    opt = input("Select option: ")
+    opt = display_menu()
 
     if opt == "1":
       init_database()
-    #elif opt == "2":
-
-    elif opt == "3":
+    elif opt == "2":
       add_member(names, ranks, divs, ids)
-
-    elif opt == "4":
+    elif opt == "3":
         remove_member(names, ranks, divs, ids)
-
-    elif opt == "5":
+    elif opt == "4":
         update_rank(names, ranks, ids)
-
-    elif opt == "6":
+    elif opt == "5":
       display_roster(names, ranks, divs, ids)
-
-    elif opt == "7":
+    elif opt == "6":
       search_crew(names, ranks, divs, ids)
-
-    elif opt == "8":
+    elif opt == "7":
         print(f"Members in selected division: ", filter_by_division(names, divs))
-    elif opt == "9":
+    elif opt == "8":
       print("Total crew payroll: £", calculate_payroll(ranks))
-    elif opt == "10":
+    elif opt == "9":
       print("High ranking officers(Captains and Commanders): " , count_officers(ranks))
-    elif opt == "11":
+    elif opt == "10":
       print("Shutting down.")
       break
     else:
       print("Invalid.")
-
 
 main()
