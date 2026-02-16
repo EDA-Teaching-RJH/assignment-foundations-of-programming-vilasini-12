@@ -39,6 +39,20 @@ def remove_member(names, ranks, divs, ids):
       ids.pop(idx)
       print("Member removed.")
 
+def update_rank(names, ranks, ids):
+  update = input("Enter ID of member to update rank: ").upper()
+  if update in ids:
+    idx = ids.index(update)
+    name = names[idx]
+    new_rank = input("Enter new rank: ").capitalize()
+    if new_rank not in ["Ensign", "Lieutenant", "Lt. Commander", "Commander", "Captain", "Admiral"]:
+      print("Not valid rank")
+      return
+    ranks[idx] = new_rank
+    print(f"{name}'s Rank updated.")
+  else:
+    print("No ID match found")
+
 def display_roster(names, ranks, divs, ids):
   print("Name - Ranks - Division - IDs")
   for i in range(len(names)):
@@ -85,7 +99,7 @@ def main():
     print("2. ")
     print("3. Add Member")
     print("4. Remove Member")
-    print("5. ")
+    print("5. Update Rank")
     print("6. Display Roster")
     print("7. ")
     print("8. Members in Certain Division")
@@ -104,7 +118,9 @@ def main():
 
     elif opt == "4":
         remove_member(names, ranks, divs, ids)
-    #elif opt == "5":
+
+    elif opt == "5":
+        update_rank(names, ranks, ids)
 
     elif opt == "6":
       display_roster(names, ranks, divs, ids)
