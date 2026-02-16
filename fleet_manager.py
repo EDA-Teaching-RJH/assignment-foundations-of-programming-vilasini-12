@@ -29,6 +29,11 @@ def add_members(names, ranks, divs, ids):
   divs.append(new_div)
   ids.append(new_id)
 
+def display_roster(names, ranks, divs, ids):
+  print("Name - Ranks - Division - IDs")
+  for i in range(len(names)):
+    print(str(names[i]) + " - " + str(ranks[i]) + " - " + str(divs[i]) + " - " + str(ids[i]))
+
 def filter_by_division(names, divs):
   members = []
   section = input("What division do you want to check: Command, Operations, Science: ").capitalize()
@@ -68,10 +73,10 @@ def main():
     print("\n--- MENU ---")
     print("1. View Crew")
     print("2. ")
-    print("3. Add Member")
+    print("3. Add Members")
     print("4. ")
     print("5. ")
-    print("6. ")
+    print("6. Display Roster")
     print("7. ")
     print("8. Members in Certain Division")
     print("9. Crew Payroll")
@@ -91,7 +96,8 @@ def main():
 
     #elif opt == "5":
 
-    #elif opt == "6":
+    elif opt == "6":
+      display_roster(names, ranks, divs, ids)
 
     #elif opt == "7":
 
